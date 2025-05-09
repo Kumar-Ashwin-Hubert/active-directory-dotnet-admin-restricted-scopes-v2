@@ -112,7 +112,7 @@ namespace GroupManager.Utils
                 return;
 
             // Ideally, methods that load and persist should be thread safe. MemoryCache.Get() is thread safe.
-            byte[] tokenCacheBytes = (byte[])this.memoryCache.Get(this.GetMsalAccountId());
+            byte[] tokenCacheBytes = (byte[])this.memoryCache.Get(cacheKey);
             args.TokenCache.DeserializeMsalV3(tokenCacheBytes);
         }
 
@@ -127,7 +127,7 @@ namespace GroupManager.Utils
                 return;
 
             // Ideally, methods that load and persist should be thread safe.MemoryCache.Get() is thread safe.
-            this.memoryCache.Set(this.GetMsalAccountId(), args.TokenCache.SerializeMsalV3(), this.cacheDuration);
+            this.memoryCache.Set(cacheKey, args.TokenCache.SerializeMsalV3(), this.cacheDuration);
         }
 
         /// <summary>

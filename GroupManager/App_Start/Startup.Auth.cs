@@ -35,6 +35,7 @@ using Owin;
 using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using System.Net;
 
 namespace GroupManager
 {
@@ -42,6 +43,8 @@ namespace GroupManager
     {
         private void ConfigureAuth(IAppBuilder app)
         {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
             app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
 
             app.UseCookieAuthentication(new CookieAuthenticationOptions { });

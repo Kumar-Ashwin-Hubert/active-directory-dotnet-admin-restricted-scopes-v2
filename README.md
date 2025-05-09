@@ -7,7 +7,7 @@ languages:
 - html
 products:
 - azure
-description: "The app is built as an ASP.NET 4.5 MVC application, using the OWIN OpenID Connect middleware to sign-in users."
+description: "The app is built as an ASP.NET 4.7.2 MVC application, using the OWIN OpenID Connect middleware to sign-in users."
 urlFragment: active-directory-dotnet-admin-restricted-scopes-v2
 ---
 
@@ -26,7 +26,7 @@ This sample application shows how to use the [Microsoft identity platform endpoi
 
 ### Scenario
 
-The app is built as an ASP.NET 4.5 MVC application, using the OWIN OpenID Connect middleware to sign-in users and uses the  [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)] to perform token acquisition.  It uses an [incremental consent](https://docs.microsoft.com/en-us/azure/active-directory/develop/azure-ad-endpoint-comparison#incremental-and-dynamic-consent) pattern, in which it first requests consent for a basic set of permission that an ordinary user can consent to themselves; like the ability to read a list of users in the user's organization.
+The app is built as an ASP.NET 4.7.2 MVC application, using the OWIN OpenID Connect middleware to sign-in users and uses the  [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)] to perform token acquisition.  It uses an [incremental consent](https://docs.microsoft.com/en-us/azure/active-directory/develop/azure-ad-endpoint-comparison#incremental-and-dynamic-consent) pattern, in which it first requests consent for a basic set of permission that an ordinary user can consent to themselves; like the ability to read a list of users in the user's organization.
 Then, when the user tries to read a list of groups in the user's organization, it will ask the administrator for the necessary admin restricted permission.  In this way, any Microsoft business user can sign up for the application without contacting their tenant administrator, and the tenant administrator is only involved when absolutely necessary.
 
 ![](ReadmeFiles/overview.png)

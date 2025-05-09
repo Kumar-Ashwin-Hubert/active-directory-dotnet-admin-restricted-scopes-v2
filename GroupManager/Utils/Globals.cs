@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 
 namespace GroupManager.Utils
 {
@@ -6,7 +7,7 @@ namespace GroupManager.Utils
     {
         public const string ConsumerTenantId = "9188040d-6c67-4c5b-b112-36a304b66dad";
         public const string IssuerClaim = "iss";
-        public const string Authority = "https://login.microsoftonline.com/common/v2.0/";
+        public const string AuthorityFormat = "https://login.microsoftonline.com/{0}/v2.0/";
         public const string RedirectUri = "https://localhost:44321/";
         public const string TenantIdClaimType = "http://schemas.microsoft.com/identity/claims/tenantid";
         public const string MicrosoftGraphGroupsApi = "https://graph.microsoft.com/v1.0/groups";
@@ -34,5 +35,11 @@ namespace GroupManager.Utils
         /// The TenantId is the DirectoryId of the Azure AD tenant being used in the sample
         /// </summary>
         public static string TenantId { get; } = ConfigurationManager.AppSettings["ida:TenantId"];
+
+        /// <summary>
+        /// Gets the authority.
+        /// </summary>
+        public static string Authority { get; } = String.Format(Globals.AuthorityFormat, TenantId);
+
     }
 }
